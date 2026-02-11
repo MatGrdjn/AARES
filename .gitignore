@@ -1,0 +1,20 @@
+# --- Données (Très important : ne jamais envoyer les CSV lourds) ---
+*.csv
+datasets/
+
+*.xlsx
+*.json
+
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.env
+
+.ipynb_checkpoints/
