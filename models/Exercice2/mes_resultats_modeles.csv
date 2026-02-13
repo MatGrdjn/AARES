@@ -1,4 +1,0 @@
-Date,Modele,Hyperparametres,RMSE,MAE,R2
-2026-02-13 01:06,RandomForestRegressor,"n_estimators=500, random_state=17, n_jobs=-1",22.866083510576175,19.16116091954023,0.2232978141655445
-2026-02-13 01:07,RandomForestRegressor,"n_estimators=500, min_samples_split=2, min_samples_leaf=2, max_features='log2', max_depth=None",22.670893055909836,19.224942999467263,0.23650145568647218
-2026-02-13 01:55,XGBRegressor,"subsample=0.7, n_estimators=500, max_depth=7, learning_rate=0.01, colsample_bytree=0.9}",24.043182942283114,20.311321258544922,0.14127349853515625
