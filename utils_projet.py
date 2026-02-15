@@ -9,6 +9,11 @@ Author: J. Miramont -  Jan 30 2026
 from numba import jit
 import numpy as np
 
+import pandas as pd
+import os
+import json
+from datetime import datetime
+
 
 @jit(nopython=True)
 def filter_by_distance(order,maxima,idx,idx2):
@@ -145,3 +150,27 @@ def search_song(db_hashes,song_hashes):
         scores.append(np.max(count))
 
     return np.argsort(scores)[::-1][:3] # Returns the index of the five more similar songs by similarity.
+
+
+def save_parameters(model_name, parameters, rmse, mae, r2, path):
+    """
+    Enregistre les scores et les paramètres.
+    """
+
+    params_string = json.dumps(parameters)
+    
+    log_entry = {
+        'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        'model_name': model_name,
+        'rmse': round(rmse, 4),
+        'mae': round(mae, 4),
+        'r2': round(r2, 4),
+        'parameters': params_string  # Une seule colonne pour tout
+    }
+    
+    df_new = pd.DataFrame([log_entry])
+    
+    file_exists = os.path.isfile(path)
+    df_new.to_csv(path, mode='a', index=False, header=not file_exists, encoding='utf-8')
+    
+    print(f"Résultats de {model_name} enregistrés dans {path}")
