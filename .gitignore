@@ -1,6 +1,3 @@
-# --- Données (Très important : ne jamais envoyer les CSV lourds) ---
-datasets/
-
 *.xlsx
 *.json
 
